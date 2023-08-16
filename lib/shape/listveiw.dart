@@ -20,7 +20,7 @@ class _listviewState extends State<listview> {
     final cubit = context.read<CategoryCubit>();
     return BlocBuilder<CategoryCubit, CategoryState>(
       builder: (context, state) {
-        return cubit.loadingSearch
+        return cubit.listviewdata.isEmpty
             ? const Center(
                 child: CircularProgressIndicator(
                   color: Color(0xff5C3C96),

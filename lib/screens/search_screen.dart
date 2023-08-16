@@ -19,7 +19,7 @@ class search extends StatelessWidget {
     return BlocBuilder<CategoryCubit, CategoryState>(builder: (context, state) {
       return SafeArea(
         child: Scaffold(
-          backgroundColor: cubit.colorscreen,
+          backgroundColor: Colors.white,
           body: SingleChildScrollView(
             child: Column(
               children: [
@@ -108,7 +108,7 @@ class search extends StatelessWidget {
                             ),
                           )
                         : Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            padding: const EdgeInsets.symmetric(vertical: 50),
                             child: ListView.separated(
                                 itemBuilder: (context, index) {
                                   return Padding(
@@ -118,14 +118,8 @@ class search extends StatelessWidget {
                                       child: Row(
                                         children: [
                                           Container(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  0.17,
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.3,
+                                              height: MediaQuery.of(context).size.height * 0.17,
+                                              width: MediaQuery.of(context).size.width *0.3,
                                               clipBehavior: Clip.antiAlias,
                                               decoration: BoxDecoration(
                                                 borderRadius:
@@ -143,10 +137,7 @@ class search extends StatelessWidget {
                                                 },
                                               )),
                                           SizedBox(
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.02,
+                                            width: MediaQuery.of(context).size.width * 0.02,
                                           ),
                                           Expanded(
                                             child: Column(
@@ -157,18 +148,18 @@ class search extends StatelessWidget {
                                                   "${cubit.Searchlist[index]["title"]}",
                                                   overflow:
                                                       TextOverflow.ellipsis,
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontSize: 25,
-                                                      color: cubit.colortext),
+                                                      color: Color(0xff5C3C96) ),
                                                   maxLines: 3,
                                                 ),
                                                 Text(
                                                   "${cubit.Searchlist[index]["publishedAt"]}",
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       fontSize: 15,
-                                                      color: cubit.colorDate),
+                                                      color:Color(0xff9873D3)),
                                                 )
                                               ],
                                             ),
@@ -188,7 +179,7 @@ class search extends StatelessWidget {
                                   );
                                 },
                                 separatorBuilder: (context, index) {
-                                  return Divider(color: cubit.colortext);
+                                  return const Divider(color:Color(0xff9873D3));
                                 },
                                 itemCount: cubit.Searchlist.length),
                           )),

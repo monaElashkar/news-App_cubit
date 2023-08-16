@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -16,21 +18,7 @@ class CategoryCubit extends Cubit<CategoryState> {
     {"image":"assets/images/science.jpeg","title":"science","color":Colors.purpleAccent,"icon":"assets/images/science.png","cat":"science"},
     {"image":"assets/images/technology.jpeg","title":"technology","color":Colors.cyan,"icon":"assets/images/technology.png","cat":"technology"},
   ];
-  bool colormode=false;
-  Color colorscreen=Colors.white;
-  Color colorDate=Colors.grey;
-  Color colortext=Colors.black;
-  Color colorappbar=Color(0xff5C3C96);
-  changemode(){
-    colorscreen=colormode==true ?Colors.white:Colors.black12;
-    emit(changeScreenColorState());
-    colortext=colormode==true ?Colors.black:Colors.white;
-    emit(changeTextColorState());
-    colorDate=colormode==true ?Colors.grey:Colors.white38;
-    emit(changeDateColorState());
-    colormode=!colormode;
-    emit(changeColorModeState());
-  }
+
 
   bool load = true;
   List source=[];
@@ -41,7 +29,7 @@ class CategoryCubit extends Cubit<CategoryState> {
     emit(StartLoadingFor_getdata_state());
     print('start');
     http.Response res = await http.get(Uri.parse(
-        "https://newsapi.org/v2/top-headlines/sources?category=$cat&apiKey=a0f9850820d142a8a9fdc1afbb7844e1"));
+        "https://newsapi.org/v2/top-headlines/sources?category=$cat&apiKey=bcab4ccbe2314cb48eef06d945ee8a31"));
     if (res.statusCode == 200) {
 
       source = json.decode(res.body)["sources"];
@@ -65,7 +53,7 @@ class CategoryCubit extends Cubit<CategoryState> {
     listviewdata = [];
     emit(StartLoadingFor_getlist_state());
     http.Response res = await http.get(Uri.parse(
-        "https://newsapi.org/v2/top-headlines?category=$cat&apiKey=a0f9850820d142a8a9fdc1afbb7844e1&source=$scr"));
+        "https://newsapi.org/v2/top-headlines?category=$cat&apiKey=bcab4ccbe2314cb48eef06d945ee8a31&source=$scr"));
     if (res.statusCode == 200) {
       listviewdata = jsonDecode(res.body)["articles"];
       print(listviewdata.length);
@@ -85,7 +73,7 @@ class CategoryCubit extends Cubit<CategoryState> {
     loadingSearch=true;
     emit(StartLoadingSearchState());
     http.Response res = await http.get(Uri.parse(
-        "https://newsapi.org/v2/top-headlines?q=$q&apiKey=a0f9850820d142a8a9fdc1afbb7844e1"));
+        "https://newsapi.org/v2/top-headlines?q=$q&apiKey=bcab4ccbe2314cb48eef06d945ee8a31"));
     if (res.statusCode == 200) {
       Searchlist = jsonDecode(res.body)["articles"];
       emit(GetSearchDataFromApi());

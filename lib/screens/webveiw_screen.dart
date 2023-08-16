@@ -29,7 +29,7 @@ class _web_screenState extends State<web_screen> {
         builder: (context, state) {
           return SafeArea(
             child: Scaffold(
-              backgroundColor: cubit.colorscreen,
+              backgroundColor: Colors.white,
               body:cubit.Url==null?Center(child: CircularProgressIndicator(),):
               WebViewWidget(
                 controller: controller,

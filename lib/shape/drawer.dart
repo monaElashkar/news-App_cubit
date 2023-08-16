@@ -15,12 +15,12 @@ class drawer extends StatelessWidget {
         builder: (context,state) {
           return Drawer(
             elevation: 17,
-            backgroundColor:cubit.colorscreen,
+            backgroundColor:Colors.white,
             child: Column(children: [
               Container(height: MediaQuery.of(context).size.height/7,
                 alignment: Alignment.center,
                 width: double.infinity,
-                color: cubit.colorappbar,
+                color: Color(0xff5C3C96) ,
                 child:  const Text("News App!",
                   style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),
                 ),
